@@ -40,7 +40,16 @@ CSS stylesheet for TPX1
 #colorSwatch1 {
 	position: absolute;
 	height: 100vh;
-	width: 100vw;
+	width: 50vw;
 	top: 0;
 	left: 0;
+}
+
+/* second swatch */
+#colorSwatch2 {
+	position: absolute;
+	height: 100vh;
+	width: 50vw;
+	top: 0;
+	right:0;
 }

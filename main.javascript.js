@@ -99,10 +99,19 @@ window.onload = function() {
 	Swatch1 = new ColorSwatch("colorSwatch1", passedRed, passedGreen, passedBlue);
 	Swatch1.displaySwatch();
 
+  
 	// attach an onclick event listener to randomize colors
 	document.getElementById("colorSwatch1").onclick = function() {
 		console.log("clicked");
 		Swatch1.randomColor();
+	}
+  
+   Swatch2 = new ColorSwatch("colorSwatch2", passedRed, passedGreen, passedBlue);
+	Swatch2.displaySwatch();
+  
+  	document.getElementById("colorSwatch2").onclick = function() {
+		console.log("clicked");
+		Swatch2.randomColor();
 	}
 	
 	// attach a function to the keydown event trigger for the whole window
