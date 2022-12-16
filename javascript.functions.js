@@ -36,3 +36,13 @@ function randomColorVal() {
 	c = Math.floor(Math.random() * 256);
 	return c;
 }
+
+function lightenColorVal(color, percent) {
+val = Math.round(color + (255 * (percent / 100)));
+	return Math.min(val, 255);
+}
+
+function darkenColorVal(color, percent) {
+	val = Math.round(color - (255 * (percent / 100)));
+	return Math.max(val, 0);
+}

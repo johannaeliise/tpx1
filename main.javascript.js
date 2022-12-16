@@ -59,20 +59,22 @@ function ColorSwatch(sid, r, g, b) {
 	// object method to lighten the color
 	this.lightenColor = function() {
 		// TPX1: insert code to lighten the color by increasing the R, G, and B values and then re-displaying
-		this.displaySwatch();
+    this.red = lightenColorVal (this.red, 5);
+    this.green = lightenColorVal(this.green, 0,5,0);
+    this.blue = lightenColorVal (this.blue, 0,0,5);
+		this.displaySwatch(); 
 	}
 	
 	// object method to darken the color
 	this.darkenColor = function() {
 		// TPX1: insert code to darken the color by decreasing the R, G, and B values and then re-displaying
+     this.red = darkenColorVal (this.red, 5);
+    this.green = darkenColorVal(this.green, 0,5,0);
+    this.blue = darkenColorVal (this.blue,0,0,5);
 		this.displaySwatch();
 	}
 	
 } // end Colorswatch object constructor
-
-
-
-
 
 
 // set up the page when the window loads
@@ -98,36 +100,49 @@ window.onload = function() {
 	// make new Colorswatch with a specific ID and R, G, B values, then display it
 	Swatch1 = new ColorSwatch("colorSwatch1", passedRed, passedGreen, passedBlue);
 	Swatch1.displaySwatch();
-
   
+
 	// attach an onclick event listener to randomize colors
 	document.getElementById("colorSwatch1").onclick = function() {
 		console.log("clicked");
 		Swatch1.randomColor();
+//    Swatch1.lightenColor();
+//    Swatch1.darkenColor();
 	}
-  
+
+        
+  //swatch 2      
    Swatch2 = new ColorSwatch("colorSwatch2", passedRed, passedGreen, passedBlue);
 	Swatch2.displaySwatch();
   
   	document.getElementById("colorSwatch2").onclick = function() {
 		console.log("clicked");
 		Swatch2.randomColor();
+ //   Swatch2.lightenColor();
+ //   Swatch2.darkenColor();
 	}
-	
+
 	// attach a function to the keydown event trigger for the whole window
+    
+
+      
 	// https://keycode.info is a useful reference for keyCode values
 	document.onkeydown = function(event) {
 		k = event.keyCode; // check the ASCII value of the keypress
 		if (k == 32) {
 			console.log("key: space");
 			Swatch1.randomColor();
+      Swatch2.randomColor();
 		} else if (k == 38) {
 			console.log("key: up arrow");
-			Swatch1.lightenColor(); // TPX1: fill in that method
+			Swatch1.lightenColor(); 
+      Swatch2.lightenColor();// TPX1: fill in that method
 		} else if (k == 40) {
 			console.log("key: down arrow");
-			Swatch1.darkenColor(); // TPX1: fill in that method
+			Swatch1.darkenColor(); 
+      Swatch2.darkenColor();// TPX1: fill in that method
 		}
 	} // end document.onkeydown function
-	
+ 
+
 } // end window.onload
